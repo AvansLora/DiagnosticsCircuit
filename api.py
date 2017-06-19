@@ -22,7 +22,7 @@ def PostRequest(path, payload):
     # print "payload"
     # print payload
     try:
-        r = requests.post(url, data=payload)
+        r = requests.post(url, data=payload, timeout=5)
         return r
     except requests.exceptions.ConnectionError as e:
         print e
