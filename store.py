@@ -4,7 +4,7 @@ store = {
     "token": ""
 }
 
-with open('settings.json') as data_file:
+with open('./settings.json') as data_file:
     store["settings"] = json.load(data_file)
 
 
