@@ -1,7 +1,7 @@
 {
 	"username": "test",
 	"password": "1234",
-	"url": "192.168.137.1",
+	"url": "192.168.1.135",
 	"port": 8081,
 	"prefix": "apiV1"
 }
