@@ -22,10 +22,10 @@ class StateManager(object):
                     # print nextState
                     if nextState:
                         # print "state"
-                        #print nextState.toString()
-                        #print "init"
+                        # print nextState.toString()
+                        # print "init"
                         nextState.init()
-                        #print "run"
+                        # print "run"
                         nextState.run(self)
                     else:
                         self.setNextState(startState.getName())
@@ -55,10 +55,10 @@ class State(object):
         self.name = state
 
     def init(self):
-        # print "init: " + self.toString()
+        return "init: " + self.toString()
 
     def run(self, manager):
-        # print "run:  " + self.toString()
+        return "run:  " + self.toString()
 
     def getName(self):
         return self.name
