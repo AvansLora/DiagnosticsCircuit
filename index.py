@@ -12,8 +12,8 @@ class Idle(State):
         State.__init__(self, "idle")
 
     def run(self, manager):
-        if manager.getGoodRun():
-            time.sleep(10)
+        if manager.getSkipNext():
+            time.sleep(60*60/2)
         manager.setNextState("measure")
 
 
@@ -46,7 +46,6 @@ class Measure(State):
 
         if r is not None and (r.status_code == 401 or r.status_code == 403):
             manager.setNextState("auth")
-            return
 
         manager.setNextState("idle")
         return
@@ -70,6 +69,7 @@ class Auth(State):
             store.setToken(token)
 
         manager.setNextState("idle")
+        return True
 
 
 sm = StateManager()
