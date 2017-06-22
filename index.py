@@ -69,7 +69,7 @@ class Auth(State):
             store.setToken(token)
 
         manager.setNextState("idle")
-        return False
+        return True
 
 
 sm = StateManager()
