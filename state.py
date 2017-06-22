@@ -2,6 +2,7 @@ class StateManager(object):
     def __init__(self):
         self.states = []
         self.currentState = None
+        self.goodRun = True
 
     def addState(self, state):
         self.states.extend([state])
@@ -26,7 +27,11 @@ class StateManager(object):
                         # print "init"
                         nextState.init()
                         # print "run"
-                        nextState.run(self)
+                        wasdoodrun = nextState.run(self)
+                        if wasdoodrun is None:
+                            self.goodRun = True
+                        else:
+                            self.goodRun = wasdoodrun
                     else:
                         self.setNextState(startState.getName())
                 else:
@@ -43,6 +48,8 @@ class StateManager(object):
                 # print x
                 return x
         return None
+    def getGoodRun(self):
+        return self.goodRun;
 
     def toString(self):
         print "Statemanager"

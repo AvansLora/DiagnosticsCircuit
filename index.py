@@ -11,10 +11,9 @@ class Idle(State):
     def __init__(self):
         State.__init__(self, "idle")
 
-    def init(self):
-        time.sleep(3)
-
     def run(self, manager):
+        if manager.getGoodRun():
+            time.sleep(10)
         manager.setNextState("measure")
 
 

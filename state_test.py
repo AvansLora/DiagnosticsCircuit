@@ -11,6 +11,7 @@ class Idle(State):
 		time.sleep(1);
 
 	def run(self, manager):
+		print manager.getGoodRun()
 		print self.toString()
 		print self.number
 		if (self.number <= 5):
