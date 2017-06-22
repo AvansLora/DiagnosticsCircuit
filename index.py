@@ -11,8 +11,11 @@ class Idle(State):
     def __init__(self):
         State.__init__(self, "idle")
 
-    def run(self, manager):
+
+    def init(self):
         time.sleep(60*60/4)
+
+    def run(self, manager):
         manager.setNextState("measure")
 
 
@@ -67,8 +70,7 @@ class Auth(State):
             token = data["token"]
             store.setToken(token)
 
-        manager.setNextState("idle")
-        return True
+        manager.setNextState("measure")
 
 
 sm = StateManager()

@@ -2,7 +2,6 @@ class StateManager(object):
     def __init__(self):
         self.states = []
         self.currentState = None
-        self.skipNext = True
 
     def addState(self, state):
         self.states.extend([state])
@@ -27,11 +26,7 @@ class StateManager(object):
                         # print "init"
                         nextState.init()
                         # print "run"
-                        skipnext = nextState.run(self)
-                        if skipnext is None:
-                            self.skipNext = False
-                        else:
-                            self.skipNext = skipnext
+                        nextState.run(self)
                     else:
                         self.setNextState(startState.getName())
                 else:
@@ -48,8 +43,6 @@ class StateManager(object):
                 # print x
                 return x
         return None
-    def getSkipNext(self):
-        return self.skipNext;
 
     def toString(self):
         print "Statemanager"
