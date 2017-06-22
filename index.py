@@ -12,7 +12,7 @@ class Idle(State):
         State.__init__(self, "idle")
 
     def run(self, manager):
-        if manager.getSkipNext():
+        if not manager.getSkipNext():
             time.sleep(60*60/2)
         manager.setNextState("measure")
 
@@ -69,7 +69,7 @@ class Auth(State):
             store.setToken(token)
 
         manager.setNextState("idle")
-        return True
+        return False
 
 
 sm = StateManager()
