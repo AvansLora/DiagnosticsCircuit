@@ -48,6 +48,7 @@ class Measure(State):
 
         if r is not None and (r.status_code == 401 or r.status_code == 403):
             manager.setNextState("auth")
+            return
 
         manager.setNextState("idle")
         return
