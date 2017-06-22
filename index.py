@@ -12,8 +12,7 @@ class Idle(State):
         State.__init__(self, "idle")
 
     def run(self, manager):
-        if not manager.getSkipNext():
-            time.sleep(60*60/2)
+        time.sleep(60*60/4)
         manager.setNextState("measure")
 
 
